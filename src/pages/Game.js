@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {useSpring, animated as a} from "react-spring";
+import Memory from "../components/Memory"
 
 export default function Game() {
     const [options, setOptions] = useState(null)
@@ -40,7 +41,7 @@ export default function Game() {
             </div>
 
             {options ? (
-                <MemoryGame
+                <Memory
                 options={options}
                 setOptions={setOptions}
                 highScore={highScore}
@@ -54,6 +55,3 @@ export default function Game() {
     )
 }
 
-function MemoryGame(props) {
-    return <div>Memory Plays Here</div>
-}
