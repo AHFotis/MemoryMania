@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {useSpring, animated as a} from "react-spring";
 import Memory from "../components/Memory"
+import Nav from "../components/Nav"
 
 export default function Game() {
     const [options, setOptions] = useState(null)
@@ -12,6 +13,7 @@ export default function Game() {
 
     return (
         <div>
+            <Nav />
             <div className="gameContainer">
                 <div>High Score: {highScore}</div>
                 <div>
