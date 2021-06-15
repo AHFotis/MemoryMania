@@ -23,7 +23,8 @@ function Card ({
 
     const onCardClick = () => {
         console.log('Card Clicked')
-        setFlipped(state => state)
+        // setFlipped(state => state)
+        setFlipped((state) => !state)
     }
     return (
     <div onClick={onCardClick}>
