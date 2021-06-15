@@ -12,7 +12,7 @@ export default function Game() {
 
     return (
         <div>
-            <div className="container">
+            <div className="gameContainer">
                 <h1>Memory Mania</h1>
                 <div>High Score: {highScore}</div>
                 <div>
