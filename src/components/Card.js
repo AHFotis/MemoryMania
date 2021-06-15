@@ -22,9 +22,22 @@ function Card ({
     }, [flippedIndexes])
 
     const onCardClick = () => {
-        console.log('Card Clicked')
+        if (!game[id].flipped && flippedCount % 3 === 0) {
+            setFlipped(state => !state)
+            setFlippedCount(flippedCount + 1)
+            const newIndexes = [...flippedIndexes]
+            newIndexes.push(id)
+            setFlippedIndexes(newIndexes)
+        } else if (flippedCount % 3 === 1 && !game[id].flipped && flippedIndexes.indexOf(id) < 0) {
+            setFlipped(state => !state)
+            setFlippedCount(flippedCount + 1)
+            const newIndexes = [...flippedIndexes]
+            newIndexes.push(id)
+            setFlippedIndexes(newIndexes)
+        }
+        // console.log('Card Clicked')
         // setFlipped(state => state)
-        setFlipped((state) => !state)
+        // setFlipped((state) => !state)
     }
     return (
     <div onClick={onCardClick}>
