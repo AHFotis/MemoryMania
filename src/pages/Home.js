@@ -4,7 +4,7 @@ function Home() {
   return (
     <div className="container home">
      <header>Memory Mania</header>
-     <button>Enter</button>
+     <a href="/game"><button>Enter</button></a>
     </div>
   );
 }
