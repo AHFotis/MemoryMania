@@ -18,7 +18,16 @@ function Card ({
     })
 
     useEffect(() => {
-        console.log('Flipped Indexes Changed')
+        if (flippedIndexes[2] === true && flippedIndexes.indexOf(id) > -1) {
+            setTimeout(() => {
+                setFlipped(state => !state)
+                setFlippedCount(flippedCount + 1)
+                setFlippedIndexes([])
+            }, 1000)
+        } else if (flippedIndexes[2] == false && id === 0) {
+            setFlippedCount(flippedCount + 1)
+            setFlippedIndexes([])
+        }
     }, [flippedIndexes])
 
     const onCardClick = () => {
