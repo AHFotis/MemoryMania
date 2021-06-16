@@ -75,7 +75,7 @@ function Memory({options, setOptions, highScore, setHighScore}) {
                     localStorage.setItem('memorymaniahighscore', newHighScore)
                 }
 
-                const newGame = confirm('You Win!, SCORE: ' + score + ' New Game?')
+                const newGame = alert('You Win!, SCORE: ' + score + ' New Game?')
                 if (newGame) {
                     const gameLength = game.length
                     setOptions(null)

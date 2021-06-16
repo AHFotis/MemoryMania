@@ -8,7 +8,11 @@ export default function Game() {
     const [highScore, setHighScore] = useState(0)
 
     useEffect(() => {
-
+        const json = localStorage.getItem('memorymaniahighscore')
+        const savedScore = JSON.parse(json)
+        if (savedScore) {
+            setHighScore(savedScore)
+        }
     }, [])
 
     return (
