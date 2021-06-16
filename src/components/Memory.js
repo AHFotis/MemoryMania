@@ -74,7 +74,18 @@ function Memory({options, setOptions, highScore, setHighScore}) {
                     const newHighScore = JSON.stringify(score)
                     localStorage.setItem('memorymaniahighscore', newHighScore)
                 }
-            })
+
+                const newGame = confirm('You Win!, SCORE: ' + score + ' New Game?')
+                if (newGame) {
+                    const gameLength = game.length
+                    setOptions(null)
+                    setTimeout(() => {
+                        setOptions(gameLength)
+                    }, 5)
+                } else {
+                    setOptions(null)
+                }
+            }, 500)
         }
     }, [game])
 
