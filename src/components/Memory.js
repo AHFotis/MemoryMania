@@ -50,7 +50,7 @@ function Memory({options, setOptions, highScore, setHighScore}) {
     }, [game])
 
     if (flippedIndexes.length === 2) {
-        //will run function if two cards have been flipped
+        const match = game[flippedIndexes[0]].colorId === game[flippedIndexes[1]].colorId
     }
 
     if (game.length === 0) return <div>loading mania...</div>
