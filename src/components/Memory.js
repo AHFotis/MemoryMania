@@ -46,7 +46,36 @@ function Memory({options, setOptions, highScore, setHighScore}) {
     }, [])
 
     useEffect(() => {
-        //will load when game variable changes
+        const finished = !game.some(card => !card.flipped)
+        if (finished && game.length > 0) {
+            setTimeout(() => {
+                const bestPossible = game.length
+                let multiplier
+
+                if (options === 12) {
+                    multiplier = 5
+                } else if (options === 18) {
+                    multiplier = 2.5
+                } else if (options === 24) {
+                    multiplier = 1
+                }
+
+                const pointsLost = multiplier * (0.66 * flippedCount - bestPossible)
+
+                let score
+                if (pointsLost < 100) {
+                    score = 100 - pointsLost
+                } else {
+                    score = 0
+                }
+
+                if (score > highScore) {
+                    setHighScore(score)
+                    const newHighScore = JSON.stringify(score)
+                    localStorage.setItem('memorymaniahighscore', newHighScore)
+                }
+            })
+        }
     }, [game])
 
     if (flippedIndexes.length === 2) {
